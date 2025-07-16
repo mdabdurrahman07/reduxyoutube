@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getVideos } from "./videosApi";
 
+// declaring the initialState
+
 const initialState = {
   videos: [],
   isLoading: false,
@@ -8,12 +10,14 @@ const initialState = {
   error: "",
 };
 
-// declaring the thunk
+// declaring the async thunk
 
-const fetchVideos = createAsyncThunk("videos/fetchVideos", async () => {
+export const fetchVideos = createAsyncThunk("videos/fetchVideos", async () => {
   const videos = await getVideos();
   return videos;
 });
+
+// declaring the reducer
 
 const videosSlice = createSlice({
   name: "videos",
