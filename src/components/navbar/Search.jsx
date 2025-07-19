@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { searched } from "../../redux/features/filter/filterSlice";
 
+
 export default function Search() {
   const dispatch = useDispatch();
   const { search } = useSelector((state) => state.filters);
@@ -10,6 +11,7 @@ export default function Search() {
     e.preventDefault();
     dispatch(searched(input));
   };
+
   return (
     <form onSubmit={handleSubmit}>
       <input
